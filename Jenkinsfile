@@ -18,7 +18,7 @@ pipeline {
     }
     
     environment {
-        APPLICATION_NAME='eureka'
+        APPLICATION_NAME='user'
         POM_VERSION = readMavenPom().getVersion()
         POM_PACKAGING = readMavenPom().getPackaging()
         DOCKER_HUB = "docker.io/kishoresamala84"
@@ -101,7 +101,7 @@ pipeline {
             }
             steps {
                 script{
-                    dockerDeploy('dev','1399','8761').call()
+                    dockerDeploy('dev','5511','8232').call()
                 }
 
             }
@@ -115,7 +115,7 @@ pipeline {
             }
             steps {
                 script {
-                    dockerDeploy('test','2399','8761')
+                    dockerDeploy('test','5512','8232')
                 }
             }
         }
@@ -139,7 +139,7 @@ pipeline {
             steps {
                 script {
                     imageValidation().call()
-                    dockerDeploy('stage','3399','8761')
+                    dockerDeploy('stage','5513','8232')
                 }
             }
         }
@@ -161,7 +161,7 @@ pipeline {
             }
             steps {
                 script {
-                    dockerDeploy('prod','4399','8761')
+                    dockerDeploy('prod','5514','8232')
                 }
             }
         }
